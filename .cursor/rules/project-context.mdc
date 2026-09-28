@@ -1,0 +1,26 @@
+---
+description: Core context for the Kenya County Budget Tracker
+alwaysApply: true
+---
+
+This project tracks Kenyan national government budget allocation to counties
+(and, with caveats, wards) year over year, alongside current office holders.
+
+Read @docs/architecture-decisions.md before making changes. Treat it as the
+source of truth for the data model, API shape, routes, and dependency versions.
+
+Stack: Rails (API-only, JSON only) + SvelteKit, strictly separate deploys
+connected via CORS and PUBLIC_API_URL. Never suggest Rails serving the Svelte app.
+
+Data rules:
+- County-level national allocations (CARA/CRA) are standardized.
+- Ward-level "national" allocation doesn't exist as a clean dataset. It is
+  derived from NG-CDF (constituency-level) and county ward development funds.
+  Always label the fund_type and flag ward figures as derived.
+- Office holders map to level: Governor/Deputy Gov/Senator/Woman Rep -> county,
+  MP -> constituency, MCA -> ward.
+
+Follow the models, API endpoints, and routes already defined in the doc rather
+than inventing new shapes. If a request conflicts with a documented decision,
+flag it and ask before proceeding. When a new decision is made, update
+docs/architecture-decisions.md.

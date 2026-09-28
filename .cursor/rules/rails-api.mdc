@@ -1,0 +1,10 @@
+---
+description: Rails API conventions
+globs: app/**/*.rb, config/**/*.rb, db/**/*.rb
+alwaysApply: false
+---
+
+- API-only: controllers return JSON, no views.
+- Controllers live under Api:: and routes under /api.
+- Use blueprinter for serialization once responses grow past simple as_json.
+- fund_type enum (county_allocation, ng_cdf, ward_dev_fund) must be preserved.

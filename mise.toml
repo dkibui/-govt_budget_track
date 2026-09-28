@@ -1,0 +1,4 @@
+[tools]
+ruby = "4.0.1"
+node = "24"
+postgres = "18"
