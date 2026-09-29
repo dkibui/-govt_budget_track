@@ -6,9 +6,9 @@
 # Read more: https://github.com/cyu/rack-cors
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'http://localhost:5173' # SvelteKit dev server
-    resource '/api/*',
+    origins "http://localhost:5173" # SvelteKit dev server
+    resource "/api/*",
              headers: :any,
-             methods: [:get, :post, :put, :patch, :delete, :options]
+             methods: [ :get, :post, :put, :patch, :delete, :options ]
   end
 end
